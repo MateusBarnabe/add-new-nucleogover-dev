@@ -1,0 +1,35 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-post-list-post-list {
+    padding-top: 56px;
+    padding-bottom: 56px;
+    .header-post{
+        display: flex;
+        justify-content: space-between;
+    }
+    .post-pages{
+        display: flex;
+        gap: 32px;
+        .post-page{
+            background-color: #FFFFFF;
+            max-width: 275px;
+            min-width: 275px;
+            img{
+                width: 275px;
+                height: 200px;
+            }
+            .post-thumb{
+                width: 275px;
+                height: 200px;
+                background-color: #0A246A;
+            }
+        }
+    }
+    width: 1196px;
+    overflow: hidden;
+}

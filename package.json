@@ -1,0 +1,16 @@
+{
+  "name": "testeNucleo",
+  "version": "1.0.0",
+  "description": "Tema para o site testeNucleo",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "keywords": [],
+  "author": "Mateus Barnabé",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^27.9.0"
+  }
+}

@@ -1,0 +1,16 @@
+.editorconfig
+.gitignore
+composer.json
+composer.lock
+composer-dev.json
+composer-dev.lock
+log.txt
+node_modules
+nw-config.inc.php
+package.json
+package-lock.json
+src
+webpack.config.js
+yarn.lock
+yarn-error.log
+.eslintrc
