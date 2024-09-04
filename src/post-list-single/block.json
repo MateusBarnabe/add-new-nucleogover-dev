@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "post-list/post-list-single",
+  "version": "0.1.0",
+  "title": "post-list-single",
+  "category": "widgets",
+  "icon": "paperclip",
+  "description": "Bloco para listagem de posts na single",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "post-list-single",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
+

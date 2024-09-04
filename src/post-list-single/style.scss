@@ -1,0 +1,90 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-post-list-post-list-single {
+    padding-top: 20px;
+    h1, h2, h3, h4, h5, h6, p {
+        margin-block: 0;
+    }
+
+    h2 {
+        font-size: 32px;
+        font-weight: bold;
+        color: #303234;
+    }
+
+    p {
+        font-size: 16px;
+        color: #6DC94C;
+    }
+
+    .post-pages {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+
+        .post-page {
+            display: flex;
+            background-color: #FFFFFF;
+            border-radius: 6px;
+            padding: 0;
+            &:hover {
+                .post-text {
+                    h6 {
+                        color: #0b2a7a;
+                    }
+                }
+            }
+        ;
+
+            img {
+                width: 275px;
+                height: 200px;
+                border-radius: 6px 0 0 6px;
+                padding: 0;
+            }
+
+            .post-thumb {
+                width: 275px;
+                height: 200px;
+                background-color: #555555;
+                border-radius: 6px 0 0 6px;
+            }
+
+            .post-text {
+                padding: 16px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                text-wrap: wrap;
+                gap: 8px;
+
+                h6 {
+                    font-size: 28px;
+                    color: #303234;
+                }
+
+                p {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .see-more {
+        display: inline-flex;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        padding: 18px;
+        margin-left: 20px;
+    }
+
+    width: 1196px;
+    overflow: hidden;
+}

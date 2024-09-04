@@ -5,14 +5,15 @@
  * Replace them with your own styles or remove the file completely.
  */
 
-.wp-block-post-list-post-list {
+.wp-block-post-list-all-posts {
     padding-top: 56px;
     padding-bottom: 56px;
 
     .header-post {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
+        padding-bottom: 30px;
     }
 
     h1, h2, h3, h4, h5, h6, p {
@@ -27,20 +28,17 @@
 
     p {
         font-size: 16px;
-        color: #6DC94C;
     }
 
     .post-pages {
         display: flex;
+        flex-direction: column;
         gap: 32px;
         margin-top: 24px;
         margin-bottom: 24px;
 
         .post-page {
-            min-height: 350px;
             background-color: #FFFFFF;
-            max-width: 275px;
-            min-width: 275px;
             border-radius: 6px;
             padding: 0;
             &:hover {
@@ -52,33 +50,34 @@
             };
 
             img {
-                width: 275px;
-                height: 200px;
+                width: 100%;
+                object-fit: cover;
+                float: left;
+                height: 300px;
                 border-radius: 6px 6px 0 0;
                 padding: 0;
             }
 
             .post-thumb {
-                width: 275px;
-                height: 200px;
+                height: 300px;
+                width: 100%;
                 background-color: #0A246A;
                 border-radius: 6px 6px 0 0;
-                margin-bottom: 8px;
             }
 
             .post-text {
-                padding: 8px 20px 20px 20px;
+                padding: 16px;
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
 
                 h6 {
-                    font-size: 18px;
+                    font-size: 24px;
                     color: #303234;
                 }
 
                 p {
-                    font-size: 16px;
+                    font-size: 20px;
                 }
             }
 
@@ -91,7 +90,7 @@
             padding-inline: 0;
             margin: 0;
             list-style-type: none;
-            border-radius: 6px;
+            border-radius: 10px;
             background-color: #0b2a7a;
             height: 100%;
 
@@ -114,5 +113,5 @@
         }
     }
 
-    width: 1196px;
+    width: 960px;
 }

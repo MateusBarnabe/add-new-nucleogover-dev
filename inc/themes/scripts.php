@@ -6,6 +6,8 @@ class scripts {
     public static function register_blocks() {
         $blocks = [
             "post-list",
+            "post-list-single",
+            "all-posts",
         ];
         foreach ( $blocks as $value ) {
             wp_register_script(

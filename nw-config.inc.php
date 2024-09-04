@@ -5,7 +5,7 @@ if (!function_exists('themes_dir')) {
 }
 
 return function () {
-    $nome = 'testeNucleo';
+    $nome = 'add-new-nucleogover-dev';
 
     return [
         'name'      => $nome,

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "post-list/all-posts",
+  "version": "0.1.0",
+  "title": "all-posts",
+  "category": "widgets",
+  "icon": "paperclip",
+  "description": "Bloco para listagem de posts",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "all-posts",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
+

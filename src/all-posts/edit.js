@@ -32,7 +32,7 @@ import './editor.scss';
 export default function Edit() {
 	return (
 		<p { ...useBlockProps() }>
-			{ __( 'Listagem de posts aqui...', 'post-list' ) }
+			{ __( 'Listagem das notícias aqui...', 'all-posts' ) }
 		</p>
 	);
 }

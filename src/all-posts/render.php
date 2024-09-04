@@ -14,35 +14,27 @@ function limitText( $text, $limit ) {
 }
 
 $block_wrapper_attributes = get_block_wrapper_attributes();
-$page                     = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+$paged                    = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $pageType                 = is_page() ? 'page' : 'paged';
 $post                     = new WP_Query( [
-    'post_type'           => 'post',
-    'posts_per_page'      => 4,
-    'paged'               => $page,
-    'ignore_sticky_posts' => 1,
+    'post_type'      => 'post',
+    'posts_per_page' => 8,
+    'paged'          => $paged,
 ] );
-
 ?>
 <section <?php echo $block_wrapper_attributes; ?>>
     <div class="header-post">
-        <h2><b>ÚLTIMAS NOTÍCIAS</b></h2>
-        <a href="/noticias" style="display: flex; gap: 12px; margin-right: 20px"><p><b>VER TODAS AS NOTÍCIAS </b></p>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M11 0H2C0.9 0 0 0.9 0 2V11C0 11.55 0.45 12 1 12C1.55 12 2 11.55 2 11V2H11C11.55 2 12 1.55 12 1C12 0.45 11.55 0 11 0ZM15 4H6C4.9 4 4 4.9 4 6V15C4 15.55 4.45 16 5 16C5.55 16 6 15.55 6 15V6H15C15.55 6 16 5.55 16 5C16 4.45 15.55 4 15 4ZM18 8H10C8.9 8 8 8.9 8 10V18C8 19.1 8.9 20 10 20H18C19.1 20 20 19.1 20 18V10C20 8.9 19.1 8 18 8Z"
-                    fill="#6DC94C"/>
-            </svg>
-        </a>
+        <h2><b>TODAS AS NOTÍCIAS</b></h2>
     </div>
     <?php
     if ( $post->have_posts() ) {
+        $count = 0;
         ?>
         <div class="post-pages" style="display: flex;">
             <?php
             while ( $post->have_posts() ) {
                 $post->the_post();
+                $count ++;
                 ?>
                 <a href="<?php the_permalink(); ?>">
                     <article class="post-page">
@@ -52,8 +44,9 @@ $post                     = new WP_Query( [
                             echo "<div class='post-thumb'></div>";
                         } ?>
                         <div class="post-text">
-                            <p style="font-size: 12px"> <?php echo get_the_date(); ?> </p>
+                            <p style="font-size: 12px; color: #6DC94C"> <?php echo get_the_date(); ?> </p>
                             <h6><b><?php limitText( get_the_title(), 100 ); ?></b></h6>
+                            <p><?php the_excerpt(); ?></p>
                         </div>
                     </article>
                 </a>
@@ -65,34 +58,37 @@ $post                     = new WP_Query( [
     } else {
         echo 'Nenhum post encontrado.';
     }
-    wp_reset_postdata();
+
     $big = 99999;
-    if ( $post->max_num_pages > 1 ){
+    if($post->max_num_pages > 1):
     ?>
     <div class="post-paginate">
         <?php
         echo '<div class="pagination">';
+        $prev_link = get_previous_posts_page_link();
+        $next_link = get_next_posts_page_link();
 
-        if ( $page === 1 ) {
+        if($paged === 1){
             echo '<span class="prev page-numbers">«</span>';
         }
 
 
         echo paginate_links( array(
             'show_all'  => false,
-            'base'      => add_query_arg( 'page', '%#%' ),
-            'format'    => '?page=%#%',
+            'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+            'format'    => '?paged=%#%',
             'end_size'  => 1,
-            'prev_text' => '«',// Desativar setas automáticas
-            'next_text' => '»',// Desativar setas automáticas
-            'current'   => max( 1, get_query_var( 'page' ) ),
+            'prev_next' => true, // Desativar setas automáticas
+            'prev_text' => __('«'),
+            'next_text' => __('»'),
+            'current'   => max( 1, get_query_var( 'paged' ) ),
             'total'     => $post->max_num_pages,
         ) );
-        if ( $page == $post->max_num_pages ) {
+        if ($paged === $post->max_num_pages){
             echo '<span class="next page-numbers">»</span>';
         }
         echo '</div>';
-        }
+        endif;
         ?>
     </div>
 </section>
