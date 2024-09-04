@@ -78,13 +78,13 @@ $post                     = new WP_Query( [
             'base'      => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
             'format'    => '?paged=%#%',
             'end_size'  => 1,
-            'prev_next' => true, // Desativar setas automáticas
+            'prev_next' => true,
             'prev_text' => __('«'),
             'next_text' => __('»'),
             'current'   => max( 1, get_query_var( 'paged' ) ),
             'total'     => $post->max_num_pages,
         ) );
-        if ($paged === $post->max_num_pages){
+        if($paged == $post->max_num_pages){
             echo '<span class="next page-numbers">»</span>';
         }
         echo '</div>';

@@ -83,8 +83,8 @@ $post                     = new WP_Query( [
             'base'      => add_query_arg( 'page', '%#%' ),
             'format'    => '?page=%#%',
             'end_size'  => 1,
-            'prev_text' => '«',// Desativar setas automáticas
-            'next_text' => '»',// Desativar setas automáticas
+            'prev_text' => '«',
+            'next_text' => '»',
             'current'   => max( 1, get_query_var( 'page' ) ),
             'total'     => $post->max_num_pages,
         ) );
